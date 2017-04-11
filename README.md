@@ -9,6 +9,23 @@ react 多页应用的模板，支持服务端渲染
 npm install
 ```
 
+### 开发理念
+
+#### server-side
+每个页面在 `routes` 目录下开发 node server 端的业务逻辑，包括服务端渲染。
+
+node 框架是 express，服务端模板引擎也是 `React`，所以 `react` 组件是可以共享的。
+
+express view 的路径就配置在 `routes` 目录，可以用 `res.render('home/view', props)` 渲染页面。这种目录设计参考了 [node-hero](https://blog.risingstack.com/node-hero-tutorial-getting-started-with-node-js/)，可以点击查看教程。
+
+``
+#### client-side
+
+每个页面在 `src` 目录下开发浏览器端的业务逻辑，`css|img|html` 文件也可以放到 src 目录下，打包时用 gulp 压缩并拷贝到 dest 目录.
+
+每个页面自己爱用什么 model/store/fetch 都可以自由选择。
+
+
 ### 配置server.config.js
 
 `server.config.js` 是 node.js server 端的一些基本配置
